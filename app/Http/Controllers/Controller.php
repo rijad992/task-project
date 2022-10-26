@@ -10,4 +10,11 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function getFieldsType() {
+        $modelNamespace = 'App\Models\\';
+        $className = $modelNamespace.ucfirst($this::class::$entity);
+
+        return $className::getFieldsTypeMap();
+    }
 }

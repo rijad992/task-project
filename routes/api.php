@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\ApartmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    var_dump($request->user());
-    return $request->user();
-});
+Route::get('/apartments', [ApartmentController::class, 'index']);
+Route::get('/apartments/get-fields-type', [ApartmentController::class, 'getFieldsType']);
+
