@@ -18,6 +18,10 @@ class ApartmentController extends Controller
      */
     public function index(Request $request)
     {
-        return Apartment::all();
+
+        //@TODO: Validate request body
+        $filters = json_decode($request->getContent(), true);
+
+        return Apartment::search($filters);
     }
 }

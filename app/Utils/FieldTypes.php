@@ -3,7 +3,7 @@
 namespace App\Utils;
 
 class FieldTypes {
-    const NUMBER = 'number';
-    const TEXT = 'text';
-    const RANGE = 'range';
+    const NUMBER = 'NumberFilter';
+    const TEXT = 'TextFilter';
+    const RANGE = 'RangeFilter';
 }

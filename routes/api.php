@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/apartments', [ApartmentController::class, 'index']);
-Route::get('/apartments/get-fields-type', [ApartmentController::class, 'getFieldsType']);
+Route::post('/apartments', [ApartmentController::class, 'index']);
+Route::get('/apartments/get-fields', [ApartmentController::class, 'getFields']);
 Route::get('/apartments/get-filters', [ApartmentController::class, 'getFilters']);
 
 

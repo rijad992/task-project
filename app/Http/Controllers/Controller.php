@@ -11,12 +11,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function getFieldsType()
+    public function getFields()
     {
         $modelNamespace = 'App\Models\\';
         $className = $modelNamespace . ucfirst($this::class::$entity);
 
-        return $className::getFieldsTypeMap();
+        return $className::getFields();
     }
 
     public function getFilters()
