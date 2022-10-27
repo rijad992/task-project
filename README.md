@@ -19,6 +19,10 @@
 - Change to project directory
 `cd task-app`
 
+- Rename `.env.example` to `.env`
+- Exposed port for backend is `8000`.
+- If backend port change is required, `apiUrl` will require change in `task-project/frontend/src/config.ts`
+
 - Build lavarel project and start container
 `./vendor/bin/sail up`
 

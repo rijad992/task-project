@@ -8,9 +8,10 @@ import { NDataTable, type DataTableColumns } from 'naive-ui'
 import type { Axios } from 'axios';
 import emmiter from '../utils/eventEmmiter'
 import type { SelectedFilter } from '@/types/types';
+import { apiUrl } from '../config'
 
 const props = defineProps<{
-  entity: string
+    entity: string
 }>()
 
 const axios: Axios | undefined = inject('axios');
@@ -18,7 +19,7 @@ const tableColumns: Ref<DataTableColumns> = ref([]);
 const tableData = ref([])
 
 const getColumns = async (): Promise<DataTableColumns> => {
-    const res = await axios?.get(`http://localhost:8000/api/${props.entity}s/get-fields`);
+    const res = await axios?.get(`${apiUrl}${props.entity}s/get-fields`);
     const fields: DataTableColumns = [];
     for (let key in res?.data) {
         fields.push({ title: res?.data[key].label, key })
@@ -27,7 +28,7 @@ const getColumns = async (): Promise<DataTableColumns> => {
 }
 
 const getTableData = async (filters: SelectedFilter[] = []) => {
-    const res = await axios?.post(`http://localhost:8000/api/${props.entity}s`, filters);
+    const res = await axios?.post(`${apiUrl}${props.entity}s`, filters);
 
     return res?.data;
 
@@ -46,7 +47,7 @@ onMounted(async () => {
     })
 })
 
-onDeactivated(()=> {
+onDeactivated(() => {
     emmiter.off('event:submit-filters')
 })
 
