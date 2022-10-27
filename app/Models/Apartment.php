@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Filters\ApartmentSearchFilters;
 use App\Utils\FieldTypes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,5 +16,10 @@ class Apartment extends Model
     public static function getFieldsTypeMap()
     {
         return ['name' => FieldTypes::TEXT,  'price' => FieldTypes::NUMBER, 'bedrooms' => FieldTypes::NUMBER, 'bathrooms' => FieldTypes::NUMBER, 'storeys' => FieldTypes::NUMBER, 'garages' => FieldTypes::NUMBER];
+    }
+
+    public static function getFilters() {
+        $filters = new ApartmentSearchFilters();
+        return $filters->getFilters();
     }
 }

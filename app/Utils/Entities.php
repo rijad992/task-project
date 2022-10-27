@@ -1,6 +1,8 @@
 <?php
-namespace App\Entities;
 
-class Entities {
+namespace App\Utils;
+
+class Entities
+{
     const APARTMENT = 'apartment';
 }
